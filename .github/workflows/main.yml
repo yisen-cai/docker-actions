@@ -1,20 +1,16 @@
-name: Push Docker images
-
-on:
-  push:
-    branches:
-      - main
-      - master
+name: Build Docker image
+on: [push]
 
 jobs:
   hello_world_job:
     runs-on: ubuntu-latest
     name: A job to say hello
-
     steps:
-      - name: "hello"
-        runs:
-          using: "docker"
-          image: "Dockerfile"
-          args:
-            - ${{ name }}
+    - name: Hello world action step
+      id: hello
+      uses: yisen-cai/docker-actions@master
+      with:
+        who-to-greet: 'YISEN'
+    # Use the output from the `hello` step
+    - name: Get the output time
+      run: echo "The time was ${{ steps.hello.outputs.time }}"
