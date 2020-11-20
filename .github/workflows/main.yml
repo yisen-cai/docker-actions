@@ -2,8 +2,9 @@ name: "Push Docker images"
 
 on:
   push:
-    - main
-    - master
+    branches:
+      - main
+      - master
 
 jobs:
   hello_world_job:
