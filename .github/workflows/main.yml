@@ -8,7 +8,7 @@ jobs:
     steps:
     - name: Hello world action step
       id: hello
-      uses: yisen-cai/docker-actions@master
+      uses: yisen-cai/docker-actions@main
       with:
         who-to-greet: 'YISEN'
     # Use the output from the `hello` step
